@@ -1,5 +1,3 @@
-#Google API installation
-# get_ipython().system('pip install pytrends')
 import random as r
 import time
 import re
@@ -17,14 +15,11 @@ lines=file.readlines()
 for line in lines:
     time.sleep(10)
     kw_list.append(line.rstrip())
-# kw_list=["Infosys","Wipro","HDFC","DMART","Accenture"]
 
 count=[]
 print("Started")
 num=r.randint(1,5)*r.randint(1,5)
 print("Time for next API call is ",num)
-#time.sleep(num)
-#count=pytrends.build_payload(kw_list, cat=0, timeframe='today 3-h', geo='', gprop='')
 count=pytrends.get_historical_interest(kw_list, year_start=2018, month_start=1, day_start=1, year_end=2018, month_end=2, day_end=1, cat=0, geo='', gprop='', sleep=num)
 count=count.drop(['isPartial'],axis=1)
 datasum=[]
@@ -48,15 +43,10 @@ for i in range(len(searchValues)):
 
 ###############
 
-
-
-
-
-# get_ipython().system('pip install matplotlib')
-access_token="1274889426-5JJDwoMkSRfY9CnjdM9b0YcMJiyVidRl5ywlJ4s"
-access_token_secret="fmwcoaffGXNW9eZ4TSbz0ZSlzKZucD7dm8kbjOiMNViSG"
-consumer_key="SMrRB5lvwvQmnuga00aY3DaLN"
-consumer_secret="0RwndwaNNcOO1dPh0rPd6rR2berHVllzPxyHEI3Ib0QLCAVG4H"
+access_token="<tweepyAccessToken>"
+access_token_secret="<tweepyAccessTokenSecret>"
+consumer_key="<tweepyConsumerKey>"
+consumer_secret="<tweepyConsumerSecret>"
 import tweepy #The Twitter API
 #from Tkinter import * #For the GUI
 from time import sleep
@@ -66,35 +56,17 @@ import matplotlib.pyplot as plt #For Graphing the Data
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-user = api.me()
-#print (user.name)
+user = api.me();
 public_tweets = api.home_timeline()
-# get_ipython().system('pip install quandl')
 
 import matplotlib.pyplot as plt
-# get_ipython().system('pip install mpl-finance')
-# get_ipython().system('pip install googlefinance')
 from mpl_finance import candlestick_ohlc
 
 import matplotlib.dates as mdates
-#import candlestick_ohlc
-
 import pandas as pd
-#from matplotlib.finance import candlestick_ohlc
-#import pandas_datareader
-#!pip install pandas-datareader.data as web
 
-#!pip install matplotlib
-#from matplotlib import finance
-
-# get_ipython().system('pip install pandas_datareader ')
 from pandas_datareader import data as web
 
-#!pip install googlefinance.get
-#from googlefinance.get 
-
-# get_ipython().system('pip install beautifulsoup4')
-# get_ipython().system('pip install scikit-learn')
 import datetime as dt
 from matplotlib import style
 
@@ -105,7 +77,6 @@ end=dt.datetime(2019,6,13);
 #########
 iterVar=1;
 
-#companies=['INFY.BO','JUBLFOOD.BO','BOROSIL.BO','HDFC.NS','DMART.BO'];
 comp=[];
 file=open('Companies.txt','r');
 lines=file.readlines();
@@ -170,7 +141,7 @@ for a in range(len(comp)):
     infy_ax1.plot(infy.index,infy['Adj Close']);
     infy_ax1.set_title(comp[a]);
     infy_ax1.xaxis_date();
-    candlestick_ohlc(infy_ax1,infy_ohlc.values,width=2,colorup='R');
+    candlestick_ohlc(infy_ax1,infy_ohlc.values,width=2);
 
     infy_ax1.plot(infy.index,infy['Company '+'%d' %(count)]);
 
