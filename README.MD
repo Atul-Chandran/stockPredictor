@@ -42,7 +42,7 @@ The stock data will be shown in the terminal and the graphs of each stock will b
 # Screenshots
 
 Stock data for the companies in "Companies.txt" are given below:-
-#Bajaj stock graph
+# Bajaj stock graph
 
 ![Bajaj](https://user-images.githubusercontent.com/54880321/109800682-8458d780-7c43-11eb-95cd-6960af2edac2.png)
 
