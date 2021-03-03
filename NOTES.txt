@@ -1,0 +1,4 @@
+To convert ipynb to py
+jupyter nbconvert --to <format> mynotebook.ipynb
+
+format--- html,script(for python)
